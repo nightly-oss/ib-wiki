@@ -1,3 +1,108 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+/* GitHub-Style Alert / Callout Theme */
+.callout {
+    /* Layout & Reset */
+    background: transparent !important;
+    border: none !important;
+    border-left: 3.5px solid var(--color, #2f81f7) !important;
+    border-radius: 0 !important;
+    padding: 0 0 0 1rem !important;
+    margin: 1rem 0 !important;
+    box-shadow: none !important;
+
+    /* Callout Header / Title */
+    .callout-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0 !important;
+        background: transparent !important;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--color, #2f81f7) !important;
+
+        /* Hide Quartz fold/collapse icon if enabled */
+        .fold-callout-icon {
+            display: none;
+        }
+
+        /* Icon styling */
+        .callout-icon {
+            width: 1rem;
+            height: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                width: 1rem;
+                height: 1rem;
+                fill: currentColor;
+                stroke: currentColor;
+            }
+        }
+    }
+
+    /* Callout Content Body */
+    .callout-content {
+        padding: 0.5rem 0 0 0 !important;
+        margin: 0 !important;
+        color: var(--darkgray) !important;
+        font-size: 0.9375rem;
+        line-height: 1.5;
+
+        >p:first-child {
+            margin-top: 0;
+        }
+
+        >p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* GitHub Alert Type Color Tokens */
+.callout[data-callout="note"],
+.callout[data-callout="info"] {
+    --color: #2f81f7;
+    /* GitHub Blue */
+}
+
+.callout[data-callout="tip"],
+.callout[data-callout="hint"] {
+    --color: #3fb950;
+    /* GitHub Green */
+}
+
+.callout[data-callout="important"] {
+    --color: #a371f7;
+    /* GitHub Purple */
+}
+
+.callout[data-callout="warning"],
+.callout[data-callout="caution"] {
+    --color: #d29922;
+    /* GitHub Yellow/Gold */
+}
+
+.callout[data-callout="danger"],
+.callout[data-callout="error"] {
+    --color: #f85149;
+    /* GitHub Red */
+}
+
+// DESMOS
+.desmos-dark {
+    iframe {
+        filter: invert(0.9) hue-rotate(180deg) contrast(1.2);
+    }
+}
+
+/* Optional: Only apply dark mode when Quartz is in dark mode */
+[saved-theme="dark"] .desmos-auto {
+    iframe {
+        filter: invert(0.9) hue-rotate(180deg) contrast(1.2);
+    }
+}
